@@ -1,22 +1,53 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button, Platform, BackHandler } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, Alert } from 'react-native';
+import { BackHandler } from 'react-native';
 
 const MainMenu = ({ navigation }) => {
-  const handleExit = () => {
-    if (Platform.OS === 'android') {
-      BackHandler.exitApp();  
-    } else {
-      console.log('Выход на iOS не поддерживается');
-    }
+  // Функция выхода из приложения
+  const handleExitApp = () => {
+    Alert.alert(
+      "Выход",
+      "Вы уверены, что хотите выйти?",
+      [
+        { text: "Отмена", style: "cancel" },
+        { text: "Выход", onPress: () => BackHandler.exitApp() }
+      ],
+      { cancelable: true }
+    );
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.logo}>FRIDGEATS</Text>
-      <Button title="Поиск рецепта" onPress={() => navigation.navigate('RecipeList')} />
-      <Button title="Избранное" onPress={() => console.log('Избранное')} />
-      <Button title="Камера" onPress={() => navigation.navigate('CameraScreen')} />
-      <Button title="Выход" onPress={handleExit} />
+      {/* Логотип */}
+      <Image 
+        source={require('../../assets/logo.jpg')} 
+        style={styles.logo}
+      />
+
+      {/* Название приложения */}
+      <Text style={styles.title}>FRIDGEATS</Text>
+
+      {/* Кнопки */}
+      <TouchableOpacity 
+        style={styles.button} 
+        onPress={() => navigation.navigate('CameraScreen')}
+      >
+        <Text style={styles.buttonText}>Найти рецепт</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+        style={styles.button} 
+        onPress={() => navigation.navigate('RecipeList')}
+      >
+        <Text style={styles.buttonText}>Избранное</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+        style={styles.button} 
+        onPress={handleExitApp}
+      >
+        <Text style={styles.buttonText}>Выход</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -29,9 +60,29 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
   },
   logo: {
-    fontSize: 32,
+    width: 100,
+    height: 100,
+    marginBottom: 20, // Расстояние между логотипом и названием
+  },
+  title: {
+    fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 40, // Расстояние между названием и кнопками
+    textAlign: 'center',
+  },
+  button: {
+    backgroundColor: '#2196F3', // Голубой цвет кнопок
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 10,
+    marginVertical: 10, // Равноудаленность кнопок
+    width: '80%', // Кнопки одинакового размера
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
 

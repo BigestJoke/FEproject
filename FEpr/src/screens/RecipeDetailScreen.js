@@ -4,13 +4,13 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 const RecipeDetailScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Рецепты</Text>
+      {/* Убрали заголовок "Рецепты" */}
       <TouchableOpacity
         style={styles.recipeCard}
         onPress={() => navigation.navigate('RecipeProcess')} // Переход на экран процесса приготовления
       >
         <Image
-          source={require('../assets/images/sup.jpg')}
+          source={require('../../assets/sup.jpg')}
           style={styles.recipeImage}
         />
         <View style={styles.recipeTextContainer}>
@@ -27,12 +27,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
   },
-  header: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
+  // Убрали стиль для "Рецепты", так как он больше не нужен
   recipeCard: {
     flexDirection: 'row',
     alignItems: 'center',
