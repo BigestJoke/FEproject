@@ -11,13 +11,13 @@ const RecipeProcessScreen = () => {
       />
 
       {/* Название блюда */}
-      <Text style={styles.title}> Крем-суп из броколи и моркови</Text>
+      <Text style={styles.title}> Крем-суп из брокколи и моркови</Text>
             {/* Разделитель */}
             <View style={styles.separator} />
 
       {/* Ингредиенты */}
       <Text style={styles.subtitle}>Ингредиенты:</Text>
-      <Text style={styles.text}>- Броколи — 300 г. </Text>
+      <Text style={styles.text}>- Брокколи — 300 г. </Text>
       <Text style={styles.text}>- Морковь — 2 шт. (средние)</Text>
       <Text style={styles.text}>- Лук — 1 шт. (среднего размера)</Text>
       <Text style={styles.text}>- Чеснок — 2 зубчика</Text>
@@ -35,7 +35,7 @@ const RecipeProcessScreen = () => {
 
       {/* Шаги приготовления */}
       <Text style={styles.stepTitle}>1. Подготовка ингредиентов:</Text>
-      <Text style={styles.text}>- Нарежьте броколи небольшими соцветиями.</Text>
+      <Text style={styles.text}>- Нарежьте брокколи небольшими соцветиями.</Text>
       <Text style={styles.text}>- Очистите морковь и нарежьте её кубиками.</Text>
       <Text style={styles.text}>- Мелко нарежьте лук и чеснок.</Text>
 
@@ -45,9 +45,9 @@ const RecipeProcessScreen = () => {
       <Text style={styles.text}>3. Добавьте чеснок и обжарьте ещё 1 минуту.</Text>
 
       <Text style={styles.stepTitle}>3. Варка супа:</Text>
-      <Text style={styles.text}>1. В кастрюлю добавьте броколи и морковь.</Text>
+      <Text style={styles.text}>1. В кастрюлю добавьте брокколи и морковь.</Text>
       <Text style={styles.text}>2. Залейте овощи бульоном так, чтобы они были полностью покрыты жидкостью.</Text>
-      <Text style={styles.text}>3. Доведите суп до кипения и варите на среднем огне примерно 15-20 минут, пока броколи и морковь не станут мягкими.</Text>
+      <Text style={styles.text}>3. Доведите суп до кипения и варите на среднем огне примерно 15-20 минут, пока брокколи и морковь не станут мягкими.</Text>
 
       <Text style={styles.stepTitle}>4. Создание кремообразной текстуры:</Text>
       <Text style={styles.text}>1. С помощью блендера измельчите суп до однородного состояния прямо в кастрюле или переложите суп в блендер порционно.</Text>

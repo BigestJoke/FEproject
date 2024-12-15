@@ -14,7 +14,7 @@ const RecipeDetailScreen = ({ navigation }) => {
           style={styles.recipeImage}
         />
         <View style={styles.recipeTextContainer}>
-          <Text style={styles.recipeName}>Крем-суп из броколи и моркови</Text>
+          <Text style={styles.recipeName}>Крем-суп из брокколи и моркови</Text>
           <Text style={styles.recipeTime}>1 час</Text>
         </View>
       </TouchableOpacity>
