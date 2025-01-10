@@ -4,33 +4,31 @@ import StartScreen from '../screens/StartScreen'; // Импортируем Star
 import MainMenu from '../screens/MainMenu';
 import RecipeList from '../screens/RecipeList';
 import CameraScreen from '../screens/CameraScreen';
-import LoadingScreen from '../screens/LoadingScreen';  
+import LoadingScreen from '../screens/LoadingScreen';
 import RecipeDetailScreen from '../screens/RecipeDetailScreen';
 import RecipeProcessScreen from '../screens/RecipeProcessScreen';
+import HandInput from '../screens/HandInput'; // Импортируем HandInput
 
 const Stack = createStackNavigator();
 
 const AppNavigator = () => (
-  <Stack.Navigator initialRouteName="StartScreen">
+  <Stack.Navigator
+    initialRouteName="StartScreen"
+    screenOptions={{
+      headerShown: false, // Скрываем заголовок по умолчанию для всех экранов
+    }}
+  >
     {/* Стартовый экран, который будет показываться первым */}
-    <Stack.Screen 
-      name="StartScreen" 
-      component={StartScreen} 
-      options={{ headerShown: false }} // Скрываем заголовок на старте
-    />
-    <Stack.Screen 
-      name="MainMenu" 
-      component={MainMenu} 
-      options={{ headerShown: false }} // Скрываем шапку на главном экране
-    />
+    <Stack.Screen name="StartScreen" component={StartScreen} />
+    <Stack.Screen name="MainMenu" component={MainMenu} />
     <Stack.Screen 
       name="RecipeList" 
       component={RecipeList} 
       options={{
         title: 'Избранное',
-        headerStyle: { backgroundColor: '#2196F3' }, 
-        headerTintColor: '#fff', 
-        headerTitleStyle: { fontWeight: 'bold' }, 
+        headerStyle: { backgroundColor: '#2196F3' },
+        headerTintColor: '#fff',
+        headerTitleStyle: { fontWeight: 'bold' },
       }} 
     />
     <Stack.Screen 
@@ -68,6 +66,16 @@ const AppNavigator = () => (
       component={RecipeProcessScreen} 
       options={{
         title: 'Процесс приготовления',
+        headerStyle: { backgroundColor: '#2196F3' },
+        headerTintColor: '#fff',
+        headerTitleStyle: { fontWeight: 'bold' },
+      }} 
+    />
+    <Stack.Screen 
+      name="HandInput"  // Добавляем новый экран
+      component={HandInput} 
+      options={{
+        title: 'Список продуктов',
         headerStyle: { backgroundColor: '#2196F3' },
         headerTintColor: '#fff',
         headerTitleStyle: { fontWeight: 'bold' },

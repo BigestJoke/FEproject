@@ -31,20 +31,32 @@ const CameraScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      {!imagePicked && (
-        <>
-          <Text style={styles.instruction}>Выберите фотографию</Text>
+      {/* Верхняя часть с кнопками */}
+      <View style={styles.topBar}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Text style={styles.topBarText}> &lt; Назад</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() =>  navigation.navigate('HandInput')}>
+          <Text style={styles.topBarText}>Ввести вручную {'>'}</Text>
+        </TouchableOpacity>
+      </View>
 
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={pickImage}>
-              <Text style={styles.buttonText}>Открыть галерею</Text>
-            </TouchableOpacity>
-          </View>
-        </>
+      {/* Черный квадрат */}
+      {!imagePicked && (
+        <View style={styles.whiteSquare}>
+        </View>
       )}
 
+      {/* Кнопка Открыть галерею */}
+      {!imagePicked && (
+        <TouchableOpacity style={styles.button} onPress={pickImage}>
+          <Text style={styles.buttonText}>Открыть галерею</Text>
+        </TouchableOpacity>
+      )}
+
+      {/* После выбора изображения */}
       {imagePicked && (
-        <>
+        <View style={styles.imageContainer}>
           <Text style={styles.instruction}>Ваша фотография</Text>
           <Image source={{ uri: image }} style={styles.image} />
 
@@ -56,7 +68,7 @@ const CameraScreen = ({ navigation }) => {
               <Text style={styles.buttonText}>Найти рецепт</Text>
             </TouchableOpacity>
           </View>
-        </>
+        </View>
       )}
     </View>
   );
@@ -64,15 +76,39 @@ const CameraScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: 'center',
     flex: 1,
+    padding: 20,
+    backgroundColor: '#FFFFFF',
+  },
+  topBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '95%',
+    paddingTop: 20,
+    marginBottom: 20,
+  },
+  topBarText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#000',
+  },
+  whiteSquare: {
+    backgroundColor: '#fff',
+    width: '80%',
+    height: 500,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
+    marginBottom: 20,
+  },
+  imageContainer: {
+    alignItems: 'center',
   },
   instruction: {
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 20,
+    color: '#000',
   },
   image: {
     width: 300,
@@ -86,16 +122,17 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   button: {
-    backgroundColor: '#2196F3', // Голубой цвет кнопок
+    backgroundColor: '#f1f1f1',
     paddingVertical: 15,
     paddingHorizontal: 30,
-    borderRadius: 10,
-    marginVertical: 10, // Равноудаленность кнопок
-    width: '80%', // Кнопки одинакового размера
+    borderRadius: 20,
+    marginVertical: 10,
+    width: '80%',
     alignItems: 'center',
+    
   },
   buttonText: {
-    color: '#fff',
+    color: '#000',
     fontSize: 18,
     fontWeight: 'bold',
   },

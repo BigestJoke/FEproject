@@ -29,7 +29,7 @@ const StartScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FF6D1F',
+    backgroundColor: '#EF8103',
     justifyContent: 'center',
     alignItems: 'center',
   },

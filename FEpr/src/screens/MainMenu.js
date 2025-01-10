@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, Alert } from 'react-native';
+import { View, Text, StyleSheet, Image, Alert, Pressable } from 'react-native';
 import { BackHandler } from 'react-native';
 
 const MainMenu = ({ navigation }) => {
@@ -28,26 +28,35 @@ const MainMenu = ({ navigation }) => {
       <Text style={styles.title}>FRIDGEATS</Text>
 
       {/* Кнопки */}
-      <TouchableOpacity 
-        style={styles.button} 
+      <Pressable 
+        style={({ pressed }) => [
+          styles.button,
+          pressed && styles.buttonPressed 
+        ]}
         onPress={() => navigation.navigate('CameraScreen')}
       >
         <Text style={styles.buttonText}>Найти рецепт</Text>
-      </TouchableOpacity>
+      </Pressable>
 
-      <TouchableOpacity 
-        style={styles.button} 
+      <Pressable 
+        style={({ pressed }) => [
+          styles.button,
+          pressed && styles.buttonPressed
+        ]}
         onPress={() => navigation.navigate('RecipeList')}
       >
         <Text style={styles.buttonText}>Избранное</Text>
-      </TouchableOpacity>
+      </Pressable>
 
-      <TouchableOpacity 
-        style={styles.button} 
+      <Pressable 
+        style={({ pressed }) => [
+          styles.button,
+          pressed && styles.buttonPressed
+        ]}
         onPress={handleExitApp}
       >
         <Text style={styles.buttonText}>Выход</Text>
-      </TouchableOpacity>
+      </Pressable>
     </View>
   );
 };
@@ -57,30 +66,33 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#FFFFFF',
   },
   logo: {
     width: 100,
     height: 100,
-    marginBottom: 20, // Расстояние между логотипом и названием
+    marginBottom: 20,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 40, // Расстояние между названием и кнопками
+    marginBottom: 40,
     textAlign: 'center',
   },
   button: {
-    backgroundColor: '#2196F3', // Голубой цвет кнопок
+    backgroundColor: '#f1f1f1', 
     paddingVertical: 15,
     paddingHorizontal: 30,
-    borderRadius: 10,
-    marginVertical: 10, // Равноудаленность кнопок
-    width: '80%', // Кнопки одинакового размера
+    borderRadius: 20,
+    marginVertical: 10,
+    width: '70%', 
     alignItems: 'center',
   },
+  buttonPressed: {
+    backgroundColor: '#EF8103', 
+  },
   buttonText: {
-    color: '#fff',
+    color: '#000',
     fontSize: 18,
     fontWeight: 'bold',
   },
