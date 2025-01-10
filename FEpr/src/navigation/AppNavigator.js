@@ -1,16 +1,23 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
+import StartScreen from '../screens/StartScreen'; // Импортируем StartScreen
 import MainMenu from '../screens/MainMenu';
 import RecipeList from '../screens/RecipeList';
 import CameraScreen from '../screens/CameraScreen';
-import LoadingScreen from '../screens/LoadingScreen';  // Убедитесь, что компонент LoadingScreen есть
+import LoadingScreen from '../screens/LoadingScreen';  
 import RecipeDetailScreen from '../screens/RecipeDetailScreen';
 import RecipeProcessScreen from '../screens/RecipeProcessScreen';
 
 const Stack = createStackNavigator();
 
 const AppNavigator = () => (
-  <Stack.Navigator initialRouteName="MainMenu">
+  <Stack.Navigator initialRouteName="StartScreen">
+    {/* Стартовый экран, который будет показываться первым */}
+    <Stack.Screen 
+      name="StartScreen" 
+      component={StartScreen} 
+      options={{ headerShown: false }} // Скрываем заголовок на старте
+    />
     <Stack.Screen 
       name="MainMenu" 
       component={MainMenu} 
@@ -21,16 +28,16 @@ const AppNavigator = () => (
       component={RecipeList} 
       options={{
         title: 'Избранное',
-        headerStyle: { backgroundColor: '#2196F3' }, // Голубая шапка
-        headerTintColor: '#fff', // Белый цвет стрелки и текста
-        headerTitleStyle: { fontWeight: 'bold' }, // Жирный шрифт для заголовка
+        headerStyle: { backgroundColor: '#2196F3' }, 
+        headerTintColor: '#fff', 
+        headerTitleStyle: { fontWeight: 'bold' }, 
       }} 
     />
     <Stack.Screen 
       name="CameraScreen" 
       component={CameraScreen} 
       options={{
-        title: 'Найти рецепт', // Шапка с кнопкой назад
+        title: 'Найти рецепт', 
         headerStyle: { backgroundColor: '#2196F3' },
         headerTintColor: '#fff',
         headerTitleStyle: { fontWeight: 'bold' },
