@@ -6,7 +6,7 @@ const recipes = [
   { id: '2', name: 'Салат Цезарь', time: '30 мин' },
 ];
 
-const RecipeList = ({ navigation }) => (
+const Favourite  = ({ navigation }) => (
   <View style={styles.container}>
     <Text style={styles.header}>Рецепты</Text>
     <FlatList
@@ -44,4 +44,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RecipeList;
+export default Favourite;

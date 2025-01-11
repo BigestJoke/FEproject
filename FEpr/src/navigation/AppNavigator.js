@@ -1,13 +1,13 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import StartScreen from '../screens/StartScreen'; // Импортируем StartScreen
+import StartScreen from '../screens/StartScreen'; 
 import MainMenu from '../screens/MainMenu';
-import RecipeList from '../screens/RecipeList';
-import CameraScreen from '../screens/CameraScreen';
-import LoadingScreen from '../screens/LoadingScreen';
+import Favourite  from '../screens/Favourite';
+import Camera from '../screens/Camera';
+import Loading from '../screens/Loading';
 import RecipeDetailScreen from '../screens/RecipeDetailScreen';
 import RecipeProcessScreen from '../screens/RecipeProcessScreen';
-import HandInput from '../screens/HandInput'; // Импортируем HandInput
+import HandInput from '../screens/HandInput'; 
 
 const Stack = createStackNavigator();
 
@@ -22,8 +22,8 @@ const AppNavigator = () => (
     <Stack.Screen name="StartScreen" component={StartScreen} />
     <Stack.Screen name="MainMenu" component={MainMenu} />
     <Stack.Screen 
-      name="RecipeList" 
-      component={RecipeList} 
+      name="Favourite" 
+      component={Favourite} 
       options={{
         title: 'Избранное',
         headerStyle: { backgroundColor: '#2196F3' },
@@ -32,8 +32,8 @@ const AppNavigator = () => (
       }} 
     />
     <Stack.Screen 
-      name="CameraScreen" 
-      component={CameraScreen} 
+      name="Camera" 
+      component={Camera} 
       options={{
         title: 'Найти рецепт', 
         headerStyle: { backgroundColor: '#2196F3' },
@@ -43,7 +43,7 @@ const AppNavigator = () => (
     />
     <Stack.Screen 
       name="Loading" 
-      component={LoadingScreen} 
+      component={Loading} 
       options={{
         title: 'Загрузка',
         headerStyle: { backgroundColor: '#2196F3' },

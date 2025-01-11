@@ -1,8 +1,7 @@
-// LoadingScreen.js
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const LoadingScreen = () => {
+const Loading = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.loadingText}>Пожалуйста подождите...</Text>
@@ -22,4 +21,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoadingScreen;
+export default Loading;

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 
-const CameraScreen = ({ navigation }) => {
+const Camera = ({ navigation }) => {
   const [image, setImage] = useState(null);
   const [imagePicked, setImagePicked] = useState(false);
 
@@ -138,4 +138,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CameraScreen;
+export default Camera;

@@ -33,7 +33,7 @@ const MainMenu = ({ navigation }) => {
           styles.button,
           pressed && styles.buttonPressed 
         ]}
-        onPress={() => navigation.navigate('CameraScreen')}
+        onPress={() => navigation.navigate('Camera')}
       >
         <Text style={styles.buttonText}>Найти рецепт</Text>
       </Pressable>
@@ -43,7 +43,7 @@ const MainMenu = ({ navigation }) => {
           styles.button,
           pressed && styles.buttonPressed
         ]}
-        onPress={() => navigation.navigate('RecipeList')}
+        onPress={() => navigation.navigate('Favourite')}
       >
         <Text style={styles.buttonText}>Избранное</Text>
       </Pressable>
