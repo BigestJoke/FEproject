@@ -37,7 +37,9 @@ const RecipeScreen = ({ navigation }) => {
         renderItem={({ item }) =>
           item === "Еще" ? (
             <View style={[styles.recipeCard, styles.centerCard]}>
+              <TouchableOpacity onPress={() => navigation.navigate('HotDishes')}>
               <Text style={styles.centerText}>Еще</Text>
+              </TouchableOpacity>
             </View>
           ) : (
             <RecipeCard recipe={item} />
