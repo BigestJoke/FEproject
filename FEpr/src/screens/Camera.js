@@ -25,7 +25,7 @@ const Camera = ({ navigation }) => {
 
     // После 4 секунд, переход на RecipeDetailScreen
     setTimeout(() => {
-      navigation.navigate('RecipeDetailScreen');  // Переход на экран рецепта
+      navigation.navigate('RecipeList');  // Переход на экран рецепта
     }, 4000);  // Задержка в 4 секунды
   };
 

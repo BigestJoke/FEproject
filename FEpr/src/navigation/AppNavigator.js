@@ -5,9 +5,10 @@ import MainMenu from '../screens/MainMenu';
 import Favourite  from '../screens/Favourite';
 import Camera from '../screens/Camera';
 import Loading from '../screens/Loading';
-import RecipeDetailScreen from '../screens/RecipeDetailScreen';
+import RecipeList from '../screens/RecipeList';
 import RecipeProcessScreen from '../screens/RecipeProcessScreen';
 import HandInput from '../screens/HandInput'; 
+import HotDishes from '../screens/HotDishes'; 
 
 const Stack = createStackNavigator();
 
@@ -52,8 +53,8 @@ const AppNavigator = () => (
       }} 
     />
     <Stack.Screen 
-      name="RecipeDetailScreen" 
-      component={RecipeDetailScreen} 
+      name="RecipeList" 
+      component={RecipeList} 
       options={{
         title: 'Найденные рецепты',
         headerStyle: { backgroundColor: '#2196F3' },
@@ -72,10 +73,20 @@ const AppNavigator = () => (
       }} 
     />
     <Stack.Screen 
-      name="HandInput"  // Добавляем новый экран
+      name="HandInput"  
       component={HandInput} 
       options={{
         title: 'Список продуктов',
+        headerStyle: { backgroundColor: '#2196F3' },
+        headerTintColor: '#fff',
+        headerTitleStyle: { fontWeight: 'bold' },
+      }} 
+    />
+      <Stack.Screen 
+      name="HotDishes"  
+      component={HotDishes} 
+      options={{
+        title: 'Горячие блюда',
         headerStyle: { backgroundColor: '#2196F3' },
         headerTintColor: '#fff',
         headerTitleStyle: { fontWeight: 'bold' },

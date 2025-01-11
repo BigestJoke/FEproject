@@ -12,7 +12,6 @@ const RecipeScreen = ({ navigation }) => {
 
   const RecipeCard = ({ recipe }) => (
     <View style={styles.recipeCard}>
-      {/* Картинка блюда */}
       <Image
         source={require('../../assets/sup.jpg')}
         style={styles.recipeImage}
@@ -29,7 +28,7 @@ const RecipeScreen = ({ navigation }) => {
     <View style={styles.recipeRow}>
       <View style={styles.rowHeader}>
         <Text style={styles.rowTitle}>{title}</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('HotDishes')}>
           <Text style={styles.rowSeeAll}>Все</Text>
         </TouchableOpacity>
       </View>
@@ -47,6 +46,7 @@ const RecipeScreen = ({ navigation }) => {
         keyExtractor={(item, index) => `${title}-${index}`}
         horizontal
         showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.recipeList}
       />
     </View>
   );
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
   },
   recipeCard: {
     width: 130,
-    height: 180, 
+    height: 190, 
     backgroundColor: "#fff",
     borderRadius: 10,
     marginRight: 10,
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     width: "100%",
-    marginTop: 10, // Расстояние между картинкой и текстом
+    marginTop: 10, 
   },
   recipeTitle: {
     fontSize: 14,
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     left: 10,
   },
   recipeHeart: {
-    marginLeft: 10, // Справа от названия
+    marginLeft: 10, 
   },
   centerCard: {
     justifyContent: "center",
@@ -171,6 +171,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
     textAlign: "center",
+  },
+  recipeList: {
+    paddingBottom: 20,  
   },
 });
 
